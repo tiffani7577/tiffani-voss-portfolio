@@ -1,0 +1,1030 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Voss Studio — Built Different</title>
+  <meta name="description" content="Voss Studio builds monetizable, highly functional websites with a creative edge. Web design, SEO systems, SaaS products, and automation — built by Tiffani Voss." />
+  <meta property="og:title" content="Voss Studio — Built Different" />
+  <meta property="og:description" content="Premium digital products with a creative operational edge. See the work." />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23c9a0a0'>V</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    /*
+      VOSS STUDIO — Design System
+      Movement: Quiet Luxury Feminism
+      Palette: Blush white #FDF8F6, Dusty rose #E8C4C4, Deep mauve #9B6B6B, Warm charcoal #2C2424
+      Typography: Cormorant Garamond (display) + DM Sans (body)
+      Vibe: Chanel meets Figma. Soft but sharp. Admired by everyone.
+    */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FDF8F6;
+      --blush: #F5E6E6;
+      --rose: #E8C4C4;
+      --mauve: #C49898;
+      --deep: #9B6B6B;
+      --charcoal: #2C2424;
+      --muted: #9E8888;
+      --white: #FFFFFF;
+      --font-display: 'Cormorant Garamond', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream);
+      color: var(--charcoal);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.6rem 4rem;
+      background: rgba(253,248,246,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(196,152,152,0.15);
+      transition: padding 0.3s;
+    }
+    nav.scrolled { padding: 1rem 4rem; }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+    }
+    .nav-logo em { font-style: italic; color: var(--deep); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+    .nav-cta {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 0.6rem 1.6rem;
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--deep); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--charcoal); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-petal {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--rose);
+      opacity: 0.18;
+      filter: blur(60px);
+      pointer-events: none;
+    }
+    .hero-petal.a { width: 500px; height: 500px; top: -100px; right: -100px; }
+    .hero-petal.b { width: 300px; height: 300px; bottom: 0; left: -80px; opacity: 0.12; }
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 1.5rem;
+    }
+    h1.hero-name {
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 9vw, 8rem);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--charcoal);
+      letter-spacing: -0.01em;
+      margin-bottom: 0.5rem;
+    }
+    h1.hero-name em { font-style: italic; color: var(--deep); }
+    .hero-sub {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+      max-width: 520px;
+    }
+    .hero-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 5rem; }
+    .btn-dark {
+      background: var(--charcoal);
+      color: var(--cream);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .btn-dark:hover { background: var(--deep); }
+    .btn-outline {
+      border: 1px solid var(--mauve);
+      color: var(--charcoal);
+      padding: 0.9rem 2.2rem;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--charcoal); }
+
+    /* ── SITE SHOWCASE ── */
+    .showcase-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    .showcase-track-wrap {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    .showcase-track {
+      display: flex;
+      gap: 1.5rem;
+      animation: marquee 32s linear infinite;
+      width: max-content;
+    }
+    .showcase-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .site-card {
+      width: 320px;
+      flex-shrink: 0;
+      background: var(--white);
+      border: 1px solid rgba(196,152,152,0.2);
+      overflow: hidden;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    .site-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(155,107,107,0.12);
+    }
+    .site-browser {
+      background: #F0EAEA;
+      padding: 10px 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .site-dot { width: 8px; height: 8px; border-radius: 50%; }
+    .site-dot.r { background: #FFBDBD; }
+    .site-dot.y { background: #FFE0A3; }
+    .site-dot.g { background: #B8E4C8; }
+    .site-urlbar {
+      flex: 1;
+      background: var(--white);
+      border-radius: 3px;
+      height: 18px;
+      margin-left: 6px;
+      display: flex;
+      align-items: center;
+      padding: 0 8px;
+      font-size: 0.58rem;
+      color: var(--muted);
+      font-family: var(--font-body);
+      letter-spacing: 0.02em;
+    }
+    .site-preview {
+      width: 100%;
+      aspect-ratio: 16/10;
+      object-fit: cover;
+      display: block;
+      background: var(--blush);
+    }
+    /* iframe previews */
+
+    .site-info {
+      padding: 1.2rem 1.4rem 1.4rem;
+    }
+    .site-name {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 0.3rem;
+    }
+    .site-type {
+      font-size: 0.68rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--deep);
+      margin-bottom: 1rem;
+    }
+    h2.section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+    h2.section-title em { font-style: italic; color: var(--deep); }
+
+    /* ── EDGE / ABOUT ── */
+    #edge {
+      background: var(--white);
+    }
+    .edge-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .edge-body {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+    }
+    .edge-body strong { color: var(--charcoal); font-weight: 500; }
+    .edge-quote {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--charcoal);
+      line-height: 1.6;
+      border-left: 2px solid var(--rose);
+      padding-left: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .pillar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(196,152,152,0.2);
+      font-size: 0.9rem;
+      color: var(--charcoal);
+      font-weight: 400;
+    }
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      color: var(--mauve);
+      letter-spacing: 0.1em;
+    }
+    .edge-visual {
+      position: relative;
+    }
+    .edge-card {
+      background: var(--cream);
+      border: 1px solid rgba(196,152,152,0.2);
+      padding: 2.5rem;
+    }
+    .edge-card-title {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .edge-stat-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .edge-stat-val {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .edge-stat-val em { font-style: italic; color: var(--deep); }
+    .edge-stat-desc {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 0.3rem;
+    }
+    .edge-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .etag {
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--deep);
+      border: 1px solid rgba(155,107,107,0.25);
+      padding: 0.35rem 0.8rem;
+    }
+
+    /* ── COVEY ── */
+    #waypoint {
+      background: var(--charcoal);
+      color: var(--cream);
+    }
+    #waypoint .section-label { color: var(--rose); }
+    #waypoint h2.section-title { color: var(--cream); }
+    #waypoint h2.section-title em { color: var(--rose); }
+    .waypoint-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .waypoint-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(232,196,196,0.1);
+      border: 1px solid rgba(232,196,196,0.25);
+      padding: 0.4rem 1rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 2rem;
+    }
+    .waypoint-badge::before { content: '●'; font-size: 0.45rem; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+    .waypoint-problem {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 300;
+      font-style: italic;
+      color: rgba(253,248,246,0.8);
+      line-height: 2;
+      margin-bottom: 2rem;
+      border-left: 1px solid rgba(232,196,196,0.3);
+      padding-left: 1.5rem;
+    }
+    .waypoint-problem span { color: var(--rose); font-style: normal; font-weight: 500; }
+    .waypoint-desc { color: rgba(253,248,246,0.6); line-height: 1.9; margin-bottom: 2.5rem; font-size: 0.92rem; }
+    .waypoint-form { display: flex; flex-direction: column; gap: 1rem; }
+    .waypoint-form input, .waypoint-form select {
+      background: rgba(253,248,246,0.06);
+      border: 1px solid rgba(232,196,196,0.2);
+      color: var(--cream);
+      padding: 0.9rem 1.1rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+    }
+    .waypoint-form input::placeholder { color: rgba(253,248,246,0.3); }
+    .waypoint-form input:focus, .waypoint-form select:focus { border-color: var(--rose); }
+    .waypoint-form select option { background: var(--charcoal); }
+    .waypoint-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .waypoint-dashboard {
+      background: rgba(253,248,246,0.04);
+      border: 1px solid rgba(232,196,196,0.15);
+      padding: 2rem;
+    }
+    .dash-header {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 1.5rem; padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(232,196,196,0.1);
+    }
+    .dash-title {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.1em;
+    }
+    .dash-live {
+      font-size: 0.62rem; color: var(--rose);
+      letter-spacing: 0.15em;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .dash-live::before { content: '●'; animation: pulse 2s infinite; }
+    .dash-stats {
+      display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-bottom: 1.5rem;
+    }
+    .dash-stat {
+      background: rgba(253,248,246,0.04);
+      padding: 1rem;
+      border-left: 2px solid rgba(232,196,196,0.4);
+    }
+    .dash-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: var(--rose);
+      line-height: 1;
+    }
+    .dash-stat-label {
+      font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(253,248,246,0.4); margin-top: 0.3rem;
+    }
+    .dash-chart { background: rgba(253,248,246,0.03); padding: 1rem; margin-bottom: 1rem; }
+    .dash-chart-label {
+      font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(253,248,246,0.4); margin-bottom: 0.75rem;
+    }
+    .dash-bars { display: flex; align-items: flex-end; gap: 4px; height: 50px; }
+    .dash-bar { flex: 1; background: rgba(232,196,196,0.15); border-top: 1px solid rgba(232,196,196,0.5); }
+    .dash-integrations { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .dash-int {
+      font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(253,248,246,0.3); border: 1px solid rgba(253,248,246,0.1); padding: 0.3rem 0.6rem;
+    }
+    .dash-int.on { color: var(--rose); border-color: rgba(232,196,196,0.3); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem;
+      max-width: 1100px; margin: 0 auto 3rem;
+    }
+    .svc-card {
+      background: var(--white);
+      border: 1px solid rgba(196,152,152,0.15);
+      padding: 2.5rem 2rem;
+      transition: box-shadow 0.3s;
+    }
+    .svc-card:hover { box-shadow: 0 12px 40px rgba(155,107,107,0.08); }
+    .svc-card.featured { background: var(--charcoal); }
+    .svc-num { font-size: 0.65rem; letter-spacing: 0.2em; color: var(--mauve); margin-bottom: 1.5rem; }
+    .svc-card.featured .svc-num { color: rgba(232,196,196,0.5); }
+    .svc-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem; font-weight: 400;
+      color: var(--charcoal); line-height: 1.2; margin-bottom: 1rem;
+    }
+    .svc-card.featured .svc-name { color: var(--cream); }
+    .svc-divider { height: 1px; background: rgba(196,152,152,0.15); margin-bottom: 1.2rem; }
+    .svc-card.featured .svc-divider { background: rgba(232,196,196,0.15); }
+    .svc-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.8; margin-bottom: 1.5rem; }
+    .svc-card.featured .svc-desc { color: rgba(253,248,246,0.55); }
+    .svc-price {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 400;
+      color: var(--deep);
+    }
+    .svc-card.featured .svc-price { color: var(--rose); }
+    .services-note {
+      text-align: center;
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 300;
+      font-style: italic;
+      color: var(--charcoal);
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2.5rem;
+      border: 1px solid rgba(196,152,152,0.2);
+    }
+    .services-note em { color: var(--deep); font-style: normal; font-weight: 400; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--blush); }
+    .contact-inner {
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      gap: 6rem; align-items: start;
+      max-width: 1000px; margin: 0 auto;
+    }
+    .contact-intro { font-size: 0.95rem; color: var(--muted); line-height: 1.9; margin-bottom: 2.5rem; }
+    .contact-meta { display: flex; flex-direction: column; gap: 1.5rem; }
+    .contact-meta-item { display: flex; flex-direction: column; gap: 0.3rem; }
+    .contact-meta-label {
+      font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--deep);
+    }
+    .contact-meta-val { font-size: 0.9rem; color: var(--charcoal); }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-form input, .contact-form textarea, .contact-form select {
+      background: var(--white);
+      border: 1px solid rgba(196,152,152,0.2);
+      color: var(--charcoal);
+      padding: 0.9rem 1.1rem;
+      font-family: var(--font-body);
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      width: 100%;
+      resize: none;
+    }
+    .contact-form input:focus, .contact-form textarea:focus, .contact-form select:focus {
+      border-color: var(--deep);
+    }
+    .contact-form select option { background: var(--white); }
+    .contact-form textarea { min-height: 110px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .contact-success {
+      display: none; padding: 2rem;
+      background: var(--white); border: 1px solid rgba(196,152,152,0.25);
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-style: italic;
+      color: var(--charcoal); line-height: 1.8;
+    }
+    .contact-success em { color: var(--deep); font-style: normal; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.4rem; font-weight: 300;
+      color: var(--cream); margin-bottom: 0.5rem;
+    }
+    .footer-logo em { font-style: italic; color: var(--rose); }
+    .footer-tagline { font-size: 0.78rem; color: rgba(253,248,246,0.4); margin-bottom: 1.5rem; }
+    .footer-status {
+      font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--rose); display: flex; align-items: center; gap: 0.5rem;
+    }
+    .footer-status::before { content: '●'; animation: pulse 2s infinite; }
+    .footer-col h4 {
+      font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: rgba(253,248,246,0.35); margin-bottom: 1.5rem;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-col a {
+      color: rgba(253,248,246,0.55); text-decoration: none;
+      font-size: 0.88rem; transition: color 0.2s;
+    }
+    .footer-col a:hover { color: var(--rose); }
+    .footer-bottom {
+      background: var(--charcoal);
+      padding: 1.5rem 4rem;
+      border-top: 1px solid rgba(253,248,246,0.06);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-bottom p { font-size: 0.72rem; color: rgba(253,248,246,0.3); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── MOBILE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.8rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-mobile-open .nav-links {
+        display: flex; flex-direction: column;
+        position: fixed; top: 58px; left: 0; right: 0;
+        background: var(--cream); padding: 2rem;
+        gap: 1.5rem; border-bottom: 1px solid rgba(196,152,152,0.15);
+      }
+      .nav-mobile-open .nav-cta {
+        display: block; margin: 0 2rem 2rem; text-align: center;
+      }
+      #hero { padding: 7rem 1.5rem 3rem; }
+      section { padding: 5rem 1.5rem; }
+      .edge-inner, .waypoint-inner, .contact-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+      .footer-bottom { padding: 1.5rem; flex-direction: column; gap: 0.5rem; text-align: center; }
+      .form-row, .waypoint-form-row { grid-template-columns: 1fr; }
+      .site-card { width: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-logo">Voss <em>Studio</em></a>
+  <ul class="nav-links">
+    <li><a href="#work">Work</a></li>
+    <li><a href="#edge">The Edge</a></li>
+    <li><a href="#waypoint">Waypoint</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Work With Me</a>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-petal a"></div>
+  <div class="hero-petal b"></div>
+  <div class="hero-eyebrow">Creative Operator &nbsp;·&nbsp; Digital Products</div>
+  <h1 class="hero-name">Voss <em>Studio</em></h1>
+  <p class="hero-sub">Websites that work as hard as they look.</p>
+  <div class="hero-actions">
+    <a href="#work" class="btn-dark">See the Work</a>
+    <a href="#contact" class="btn-outline">Start a Project</a>
+  </div>
+
+  <!-- SITE SHOWCASE -->
+  <div class="showcase-label">Live Sites — Click to Visit</div>
+  <div class="showcase-track-wrap" id="work">
+    <div class="showcase-track" id="track">
+
+      <a href="https://gigxo.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">gigxo.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/FfBJpQScIxncKbRk.jpg" alt="GigXO" class="site-preview" />
+        <div class="site-info"><div class="site-name">GigXO</div><div class="site-type">Performer Marketplace Platform</div></div>
+      </a>
+      <a href="https://voxlocal.co" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">voxlocal.co</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/npJoYrsOaTYlWRws.jpg" alt="VoxLocal" class="site-preview" />
+        <div class="site-info"><div class="site-name">VoxLocal</div><div class="site-type">Local SEO &amp; Marketing Platform</div></div>
+      </a>
+      <a href="https://breezycoastalrentals.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">breezycoastalrentals.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/HbhVgpyhRYbaQqIf.jpg" alt="Breezy Coastal Rentals" class="site-preview" />
+        <div class="site-info"><div class="site-name">Breezy Coastal Rentals</div><div class="site-type">Vacation Rental Brand &amp; Booking</div></div>
+      </a>
+      <a href="https://sunshinestateinsured.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">sunshinestateinsured.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/GcrZhleyOKsStBEX.jpg" alt="Sunshine State Insured" class="site-preview" />
+        <div class="site-info"><div class="site-name">Sunshine State Insured</div><div class="site-type">Insurance Lead Generation</div></div>
+      </a>
+      <a href="https://floridawindstorminsurance.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">floridawindstorminsurance.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/BcvWdsZkKzfMBIVs.jpg" alt="Florida Windstorm Insurance" class="site-preview" />
+        <div class="site-info"><div class="site-name">Florida Windstorm Insurance</div><div class="site-type">Vertical SEO Lead Machine</div></div>
+      </a>
+      <a href="https://floridahomeownersinsurancequotes.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">floridahomeownersinsurancequotes.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/iHJFowEhuwQIjaHQ.jpg" alt="FL Homeowners Insurance Quotes" class="site-preview" />
+        <div class="site-info"><div class="site-name">FL Homeowners Insurance Quotes</div><div class="site-type">Multi-Site SEO Strategy</div></div>
+      </a>
+      <a href="https://instantcoiflorida.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">instantcoiflorida.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/ilQzolSdZyvfOrDp.jpg" alt="Instant COI Florida" class="site-preview" />
+        <div class="site-info"><div class="site-name">Instant COI Florida</div><div class="site-type">Insurance Tech Platform</div></div>
+      </a>
+      <!-- Duplicate for seamless loop -->
+      <a href="https://gigxo.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">gigxo.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/FfBJpQScIxncKbRk.jpg" alt="GigXO" class="site-preview" />
+        <div class="site-info"><div class="site-name">GigXO</div><div class="site-type">Performer Marketplace Platform</div></div>
+      </a>
+      <a href="https://voxlocal.co" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">voxlocal.co</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/npJoYrsOaTYlWRws.jpg" alt="VoxLocal" class="site-preview" />
+        <div class="site-info"><div class="site-name">VoxLocal</div><div class="site-type">Local SEO &amp; Marketing Platform</div></div>
+      </a>
+      <a href="https://breezycoastalrentals.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">breezycoastalrentals.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/HbhVgpyhRYbaQqIf.jpg" alt="Breezy Coastal Rentals" class="site-preview" />
+        <div class="site-info"><div class="site-name">Breezy Coastal Rentals</div><div class="site-type">Vacation Rental Brand &amp; Booking</div></div>
+      </a>
+      <a href="https://sunshinestateinsured.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">sunshinestateinsured.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/GcrZhleyOKsStBEX.jpg" alt="Sunshine State Insured" class="site-preview" />
+        <div class="site-info"><div class="site-name">Sunshine State Insured</div><div class="site-type">Insurance Lead Generation</div></div>
+      </a>
+      <a href="https://floridawindstorminsurance.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">floridawindstorminsurance.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/BcvWdsZkKzfMBIVs.jpg" alt="Florida Windstorm Insurance" class="site-preview" />
+        <div class="site-info"><div class="site-name">Florida Windstorm Insurance</div><div class="site-type">Vertical SEO Lead Machine</div></div>
+      </a>
+      <a href="https://instantcoiflorida.com" target="_blank" class="site-card">
+        <div class="site-browser"><div class="site-dot r"></div><div class="site-dot y"></div><div class="site-dot g"></div><div class="site-urlbar">instantcoiflorida.com</div></div>
+        <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663413300520/ilQzolSdZyvfOrDp.jpg" alt="Instant COI Florida" class="site-preview" />
+        <div class="site-info"><div class="site-name">Instant COI Florida</div><div class="site-type">Insurance Tech Platform</div></div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- THE EDGE / ABOUT -->
+<section id="edge">
+  <div class="edge-inner">
+    <div class="fade-up">
+      <div class="section-label">The Operational Edge</div>
+      <h2 class="section-title">Sites that don't just<br />look good — <em>they perform.</em></h2>
+      <p class="edge-body">
+        Most websites are built by designers who don't understand business, or developers who don't understand people. <strong>Voss Studio sits at the intersection most people don't reach.</strong>
+      </p>
+      <div class="edge-quote">
+        "I grew up watching someone run eight parks across Florida — compliance, payroll, inventory, guest experience, all at once. I learned that the difference between good and great is usually one system that connects everything else. I build those systems. I also make them look like someone cared."
+      </div>
+      <p class="edge-body">
+        Two degrees. Singer, music producer, visual artist. Builder of platforms, lead generation machines, and automation infrastructure. Young, female, and routinely underestimated — <strong>the work is the response to that.</strong>
+      </p>
+    </div>
+    <div class="fade-up">
+      <div class="edge-card">
+        <div class="edge-card-title">By the Numbers</div>
+        <div class="edge-stat-row">
+          <div>
+            <div class="edge-stat-val">8<em>+</em></div>
+            <div class="edge-stat-desc">Live Products</div>
+          </div>
+          <div>
+            <div class="edge-stat-val">3</div>
+            <div class="edge-stat-desc">Clients / Month</div>
+          </div>
+          <div>
+            <div class="edge-stat-val"><em>∞</em></div>
+            <div class="edge-stat-desc">Systems Built</div>
+          </div>
+          <div>
+            <div class="edge-stat-val">1<em>st</em></div>
+            <div class="edge-stat-desc">Principle: It Works</div>
+          </div>
+        </div>
+        <div class="edge-tags">
+          <span class="etag">Web Design</span>
+          <span class="etag">SEO Architecture</span>
+          <span class="etag">SaaS</span>
+          <span class="etag">Automation</span>
+          <span class="etag">Brand Strategy</span>
+          <span class="etag">Product Thinking</span>
+        </div>
+      </div>
+      <div class="pillars" style="margin-top:2rem;">
+        <div class="pillar"><span>Web Design &amp; Development</span><span class="pillar-num">01</span></div>
+        <div class="pillar"><span>Product Strategy &amp; Positioning</span><span class="pillar-num">02</span></div>
+        <div class="pillar"><span>SEO Architecture &amp; Lead Generation</span><span class="pillar-num">03</span></div>
+        <div class="pillar"><span>SaaS Product Concepting</span><span class="pillar-num">04</span></div>
+        <div class="pillar"><span>Automation &amp; Systems Thinking</span><span class="pillar-num">05</span></div>
+        <div class="pillar"><span>Brand Identity</span><span class="pillar-num">06</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COVEY -->
+<section id="waypoint">
+  <div class="waypoint-inner">
+    <div class="fade-up">
+      <div class="waypoint-badge">In Development</div>
+      <div class="section-label">Product Vision</div>
+      <h2 class="section-title">Waypoint — <em>the outdoor<br />recreation OS</em></h2>
+      <p class="waypoint-problem">
+        "Your booking system doesn't know your register exists.<br />
+        Your register doesn't know your waivers exist.<br />
+        Your waivers don't know your inventory exists.<br />
+        <span>Waypoint fixes that.</span>"
+      </p>
+      <p class="waypoint-desc">A SaaS middleware platform connecting FareHarbor, Square, Lightspeed, and Smartwaiver into one unified operating system — built for national park concessionaires, cave tour operators, kayak outfitters, and multi-activity parks. One dashboard. One source of truth.</p>
+      <h3 style="font-family:var(--font-display);font-size:1rem;font-weight:400;color:var(--rose);margin-bottom:1.2rem;letter-spacing:0.08em;text-transform:uppercase;">Get Early Access</h3>
+      <form class="waypoint-form" id="waypoint-form">
+        <div class="waypoint-form-row">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="text" name="business" placeholder="Business Name" required />
+        </div>
+        <input type="email" name="email" placeholder="Email Address" required />
+        <select name="locations">
+          <option value="">Number of Locations...</option>
+          <option>1 location</option>
+          <option>2–5 locations</option>
+          <option>6–15 locations</option>
+          <option>16+ locations</option>
+        </select>
+        <button type="submit" class="btn-outline" style="border-color:rgba(232,196,196,0.4);color:var(--cream);align-self:flex-start;">Request Early Access →</button>
+      </form>
+      <div id="waypoint-success" style="display:none;margin-top:1.5rem;padding:1.5rem;background:rgba(232,196,196,0.08);border:1px solid rgba(232,196,196,0.2);color:rgba(253,248,246,0.8);font-family:var(--font-display);font-style:italic;font-size:1rem;line-height:1.7;">
+        You're on the list. We'll be in touch before anyone else.
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="waypoint-dashboard">
+        <div class="dash-header">
+          <div class="dash-title">COVEY DASHBOARD</div>
+          <div class="dash-live">Live</div>
+        </div>
+        <div class="dash-stats">
+          <div class="dash-stat"><div class="dash-stat-val">142</div><div class="dash-stat-label">Today's Bookings</div></div>
+          <div class="dash-stat"><div class="dash-stat-val">87%</div><div class="dash-stat-label">Tour Capacity</div></div>
+          <div class="dash-stat"><div class="dash-stat-val">$8,340</div><div class="dash-stat-label">Retail Revenue</div></div>
+          <div class="dash-stat"><div class="dash-stat-val">✓</div><div class="dash-stat-label">Daily Reconciled</div></div>
+        </div>
+        <div class="dash-chart">
+          <div class="dash-chart-label">Booking Volume — Last 7 Days</div>
+          <div class="dash-bars" id="dash-bars"></div>
+        </div>
+        <div style="margin-bottom:0.6rem;font-size:0.6rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(253,248,246,0.35);">Connected Systems</div>
+        <div class="dash-integrations">
+          <span class="dash-int on">FareHarbor</span>
+          <span class="dash-int on">Square</span>
+          <span class="dash-int on">Lightspeed</span>
+          <span class="dash-int on">Smartwaiver</span>
+          <span class="dash-int">QuickBooks</span>
+          <span class="dash-int">Slack</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="section-label" style="text-align:center;">Services</div>
+    <h2 class="section-title fade-up" style="text-align:center;margin-bottom:3rem;">Built for people<br />who are <em>serious.</em></h2>
+    <div class="services-grid">
+      <div class="svc-card fade-up">
+        <div class="svc-num">01</div>
+        <h3 class="svc-name">Brand &amp; Web</h3>
+        <div class="svc-divider"></div>
+        <p class="svc-desc">Full brand identity and premium web presence. Strategy, design, and build delivered as a system — not a template.</p>
+        <div class="svc-price">From $3,500</div>
+      </div>
+      <div class="svc-card featured fade-up">
+        <div class="svc-num">02</div>
+        <h3 class="svc-name">Growth Infrastructure</h3>
+        <div class="svc-divider"></div>
+        <p class="svc-desc">SEO architecture, lead generation systems, and multi-site strategy for businesses that want traffic that converts — not just traffic.</p>
+        <div class="svc-price">From $2,500</div>
+      </div>
+      <div class="svc-card fade-up">
+        <div class="svc-num">03</div>
+        <h3 class="svc-name">Product Strategy</h3>
+        <div class="svc-divider"></div>
+        <p class="svc-desc">For founders with an idea who need someone who can think through it, position it, and build it into something real and fundable.</p>
+        <div class="svc-price">From $1,500</div>
+      </div>
+    </div>
+    <div class="services-note fade-up">
+      I take on <em>three new clients per month.</em><br />
+      If you're serious about what you're building — let's talk.
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-inner">
+    <div class="fade-up">
+      <div class="section-label">Contact</div>
+      <h2 class="section-title">Let's build<br />something <em>real.</em></h2>
+      <p class="contact-intro">I work with founders, operators, and businesses who know what they want and are ready to invest in building it correctly.</p>
+      <div class="contact-meta">
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">Availability</span>
+          <span class="contact-meta-val">Currently taking clients for Q2 2026</span>
+        </div>
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">Response Time</span>
+          <span class="contact-meta-val">Within 48 hours</span>
+        </div>
+        <div class="contact-meta-item">
+          <span class="contact-meta-label">Client Limit</span>
+          <span class="contact-meta-val">3 new clients per month</span>
+        </div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <form class="contact-form" id="contact-form">
+        <div class="form-row">
+          <input type="text" name="name" placeholder="Your Name" required />
+          <input type="text" name="company" placeholder="Company / Project" />
+        </div>
+        <select name="service">
+          <option value="" disabled selected>What do you need?</option>
+          <option>Brand &amp; Web — $3,500+</option>
+          <option>Growth Infrastructure — $2,500+</option>
+          <option>Product Strategy — $1,500+</option>
+          <option>Something else entirely</option>
+        </select>
+        <select name="budget">
+          <option value="" disabled selected>Budget Range</option>
+          <option>$1,500 – $3,500</option>
+          <option>$3,500 – $7,500</option>
+          <option>$7,500 – $15,000</option>
+          <option>$15,000+</option>
+        </select>
+        <textarea name="message" placeholder="Tell me about what you're building..."></textarea>
+        <button type="submit" class="btn-dark">Send It →</button>
+      </form>
+      <div class="contact-success" id="contact-success">
+        <em>Got it.</em> I'll be in touch within 48 hours.<br />
+        In the meantime — go look at what you're currently settling for.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">Voss <em>Studio</em></div>
+    <div class="footer-tagline">I automate the internet.</div>
+    <div class="footer-status">Currently taking clients for Q2 2026</div>
+  </div>
+  <div class="footer-col">
+    <h4>Navigation</h4>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#edge">The Edge</a></li>
+      <li><a href="#waypoint">Waypoint</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Coming Soon</h4>
+    <ul>
+      <li><a href="#waypoint">Waypoint — Outdoor Recreation OS</a></li>
+      <li><a href="#waypoint">Get Early Access</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Voss Studio. All rights reserved.</p>
+  <p>Built by the operator.</p>
+</div>
+
+<script>
+  // NAV
+  const nav = document.getElementById('main-nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+  document.getElementById('hamburger').addEventListener('click', () => nav.classList.toggle('nav-mobile-open'));
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', () => nav.classList.remove('nav-mobile-open')));
+
+  // SCROLL ANIMATIONS
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) { setTimeout(() => e.target.classList.add('visible'), i * 100); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // DASHBOARD BARS
+  const barData = [58,72,65,90,110,128,142];
+  const barsEl = document.getElementById('dash-bars');
+  const max = Math.max(...barData);
+  barData.forEach(v => {
+    const b = document.createElement('div');
+    b.className = 'dash-bar';
+    b.style.height = (v/max*100)+'%';
+    barsEl.appendChild(b);
+  });
+
+  // FORMS
+  document.getElementById('waypoint-form').addEventListener('submit', function(e) {
+    e.preventDefault(); this.style.display='none';
+    document.getElementById('waypoint-success').style.display='block';
+  });
+  document.getElementById('contact-form').addEventListener('submit', function(e) {
+    e.preventDefault(); this.style.display='none';
+    document.getElementById('contact-success').style.display='block';
+  });
+</script>
+</body>
+</html>
