@@ -2,7 +2,7 @@ import { useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
-    window.location.replace("/portfolio.html");
+    window.location.replace("./portfolio.html");
   }, []);
   return null;
 }
